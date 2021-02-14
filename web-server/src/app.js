@@ -25,25 +25,25 @@ app.get('', (req,res)=>{
 })
 
 app.get('/weather', (req,res)=>{
-    if(req.query.address){
-        const loc = req.query.address;
-        geocode(loc, (err, {longitude, lattitude})=>{
-            if(err) res.send({error: err});
-            else {
-                forecast(lattitude, longitude, (err, {temperature, feelslike, humidity, location})=>{
-                    if(err) res.send({error: err});
-                    else {
-                        res.send({
-                            location,
-                            temperature,
-                            feelslike,
-                            humidity
-                        });
-                    }
-                })
-            }
-        });
-    }
+        if(req.query.address){
+            const loc = req.query.address;
+            geocode(loc, (err, {longitude, lattitude} = {})=>{
+                if(err) res.send({error: err});
+                else {
+                    forecast(lattitude, longitude, (err, {temperature, feelslike, humidity, location})=>{
+                        if(err) res.send({error: err});
+                        else {
+                            res.send({
+                                location,
+                                temperature,
+                                feelslike,
+                                humidity
+                            });
+                        }
+                    })
+                }
+            });
+        }
     else{
         res.send({
             error: "Address must be provided"

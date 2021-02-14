@@ -6,7 +6,7 @@ const geocode = (location, callback) => {
     request({url: mburl, json: true}, (err, res)=>{
         if(err){
             callback('Unable to connect', undefined);
-        } else if(!res.body.features){
+        } else if(res.body.features.length === 0){
             callback('Unable to find location. Try another search', undefined);
         } else {
             callback(undefined,{
