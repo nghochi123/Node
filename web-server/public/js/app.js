@@ -5,7 +5,7 @@
 //         console.log(data);
 //     })
 // });
-const base = "http://localhost:3000/weather?address=";
+const base = "/weather?address=";
 
 const weatherForm = document.querySelector('form');
 const m1 = document.getElementById('location');
