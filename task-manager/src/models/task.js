@@ -20,11 +20,6 @@ const taskSchema = new mongoose.Schema({
     timestamps: true
 })
 
-taskSchema.pre('save', function(next) {
-    console.log('Hello');
-    next();
-})
-
 const Task = mongoose.model('Task', taskSchema);
 
 module.exports = Task;
